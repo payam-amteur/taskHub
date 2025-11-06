@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <h1>بازی حدس عدد</h1>
+     <p>یک عدد بین 1تا 100 را حدس بزنید</p>
+     <input type="number" name="number" id="inputNumber" min="1" max="100" style="width: 200px;">
+     <button id="guessBut">حدس بزن</button>
+
+
+     <p id="massage"></p>
+     <p id="attemps"></p>
+     <button style="display: none;" id="resetGame">بازی مجدد</button>
+
+
+
+     <script>
+          const input = document.getElementById('inputNumber');
+          const guessBut = document.getElementById('guessBut');
+          const massage = document.getElementById('massage');
+          const attempsDisplay = document.getElementById('attemps');
+          const resetGame = document.getElementById('resetGame');
+
+
+          let attemps = 0;
+          const maxAttemp = 10;
+
+          const randomNum = Math.floor(Math.random() * 100) + 1;
+          const save = localStorage.setItem('randomNum',randomNum);
+          
+
+          guessBut.addEventListener('click',() => {
+               const guess = parseInt(input.value);
+               if(isNaN(guess) || guess < 0 || guess > 100 ){
+                    massage.innerHTML = 'لطفا مقدار مجاز انتخاب کنید!!!'
+                    return;
+               }
+               attemps++;
+
+               const targetNum = parseInt(localStorage.getItem('randomNum'));
+               if(guess === targetNum){
+                    massage.innerHTML = `شما برنده بازی شدید:عدد درست ${targetNum} بود`;
+                    endGame();
+               }else if(attemps >= 10){
+                    massage.innerHTML = `شما باختید عدد${targetNum} بود.`;
+                    endGame();
+               }else if(guess > targetNum){
+                    massage.innerHTML = `این عدد از مقدار اصلی بیشتر است`;
+                    massage.style.color = "green"
+               }else{
+                    massage.innerHTML = `این عدد از مقدار اصلی کمتر است`;
+                    massage.style.color = "red"
+               };
+
+               attempsDisplay.innerHTML = `تعداد حدس های شما - ${attemps}/${maxAttemp}`;
+
+               resetGame.addEventListener('click',() => {
+                    location.reload();
+               })
+          });
+
+
+          function endGame(){
+               resetGame.style.display = 'block';
+               input.disabled = true;
+               guessBut.disabled = true;
+          }
+
+          window.addEventListener('contextmenu', (e) => {
+               e.preventDefault();
+          });
+     </script>
+</body>
+</html>

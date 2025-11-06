@@ -1,0 +1,225 @@
+*{box-sizing: border-box}
+body{
+            background-color: whitesmoke
+}
+
+.my-navbar{
+            width: 5%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: rgba(235, 135, 27, 0.288);
+            overflow: hidden;
+            transition: width 0.3s ease;
+            padding: 4px;
+            z-index: 20;
+            
+}
+.moh-tava{
+            width: 70%;
+            height: 100vh;
+            position: relative;
+            margin-left: 7%;
+            background-color: whitesmoke;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+}
+.my-api {
+  flex: 1;
+  overflow-y: auto;     /* فقط عمودی اسکرول داشته باشه */
+  overflow-x: hidden;   /* اسکرول افقی کاملاً حذف */
+  max-height: 55vh;     /* تا جایی که لازمه ارتفاع داشته باشه */
+  padding-right: 10px;
+  scrollbar-width: thin;
+}
+
+.my-api::-webkit-scrollbar {
+  width: 6px;
+}
+
+.my-api::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 10px;
+}
+
+
+.active{
+            width: 11.5%;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+}
+.my-navbar ul {
+            position: relative;
+            display: flex;
+            flex-flow: column;
+            gap: 40px;
+}
+.my-navbar ul li {
+            display: flex;
+}
+.my-navbar ul li a{
+            left: 70px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: relative;
+            color: rgb(60, 36, 10);
+            cursor: pointer;
+}
+.image-style{
+            width: 30px;
+            height: 30px;
+            position: absolute;      
+}
+
+.rotate{
+           animation: rotate 1s forwards;
+}
+@keyframes rotate {
+           0%{
+            transform: rotate(0deg) ;
+           } 
+           50%{
+            transform: translateX(80px) rotate(180deg);
+           }
+           100%{
+            transform: rotate(360deg);
+           }
+}
+.top-middel{
+            margin-top: 50px;
+            margin-left: 85px;
+            display: flex;
+            gap: 40px;
+            width: 500px;
+}
+.butt-col{
+            color: rgb(95, 94, 94);
+            padding-inline: 10px;
+            border: 2px solid transparent;
+            transition: border 0.5s ease;
+            white-space: nowrap;
+            position: relative;
+            z-index: 10;
+}
+.butt-col:hover{
+            border: 2px solid rgb(90, 16, 16);
+            cursor: pointer;
+}
+.top-in{
+            margin-top: 30px;
+            margin-left: 85px;
+            display: flex;
+            gap: 70px;
+}
+.top-in button{
+            color: rgb(95, 94, 94);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease-in;
+}
+
+.top-in button.active-btn{
+            border-bottom: 2px solid red;
+            color: red;
+}
+
+
+.task-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-block: 0.5rem;
+  justify-content: space-between; /* کل عرض رو تقسیم می‌کنه */
+  flex-wrap: nowrap; /* نذاره بیفته پایین */
+  gap: 32px;
+}
+
+.task-row li {
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 4px;
+  text-overflow: ellipsis;
+}
+
+.task-row li:nth-child(1) { width: 45%; }  /* Taskname */
+.task-row li:nth-child(2) { width: 15%;  text-align: center; }  /* Deadline */
+.task-row li:nth-child(3) { width: 11%;  text-align: center;}  /* Status */
+.task-row li:nth-child(4) { width: 15%;  text-align: center;}  /* Time */
+.task-row li:nth-child(5) { width: 10%; display: flex; justify-content: center;}  /* Assignee */
+
+
+.ok-button{
+            background: linear-gradient(to right, #16a34a, #22c55e);
+            padding: 2px 20px;
+            font-weight: 700;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ok-button:hover{
+            border: 2px solid rgb(102, 27, 27);         
+            transform: translateY(-2px) scale(0.9);  
+
+}
+.add-task{
+            transition: all 0.3s ease;
+            border: 2px solid transparent;           
+}
+.add-task:hover{
+            border: 2px solid rgb(102, 27, 27);
+            transform: translateY(-2px) scale(0.9);  
+}
+
+
+.make-task {
+  display: flex;
+  opacity: 0;
+  max-height: 0.1px;
+  overflow: hidden;
+  transition: all 2s ease;
+  visibility: hidden;
+  gap: 32px;
+}
+.make-task.show {
+  visibility: visible;
+  opacity: 1;
+  max-height: 80px;
+}
+
+.make-task li {
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 4px;  
+}    
+.make-task li input {
+  width: 100%;
+  border: 1px solid #8b5e3c;
+  border-radius: 6px;
+  outline: none;
+  padding: 8px 10px;
+  background-color: #fff;
+  transition: border 0.3s ease;
+  font-size: 14px;
+}
+.make-task li input:focus {
+  border-color: #b45309;
+  box-shadow: 0 0 5px rgba(180,83,9,0.4);
+}
+
+.make-task li:nth-child(1) { width: 45%; } 
+.make-task li:nth-child(2) { width: 15%;  text-align: center;} 
+.make-task li:nth-child(3) { width: 11%;  text-align: center; }  /* Status */
+.make-task li:nth-child(4) { width: 15%;  text-align: center;}  /* Time */
+.make-task li:nth-child(5) { width: 10%; display: flex; justify-content: center;}  /* Assignee */
+
+
+
+.change-background:nth-child(3){
+            background-color: green;
+            color: white;
+            padding: 4px;
+};

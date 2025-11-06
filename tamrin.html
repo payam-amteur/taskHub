@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background: linear-gradient(#353A5F,#9EBAF3);
+    }
+    .my-back-color{
+      background-color: rgba(14, 4, 61, 0.575);
+    }
+    .my-fit-img img{
+      object-fit: cover;
+      height: 470px;
+      border-radius: 10px;
+      width: 340px;
+    }
+    .my-slider {
+      display: flex;
+      transition: transform 0.7s ease-in-out; /* انیمیشن نرم */
+    }
+    
+    .my-inp-name input{
+      width: 160px;
+      height: 35px;
+      border-radius: 5px;
+      background-color: rgb(53, 53, 151);
+      padding: 8px;
+      outline: none;
+      transition: border 0.5s ease;
+      border: 2px solid transparent;
+      color: white;
+    }
+    .my-inp-name input:focus{
+      border: 2px solid rgb(81, 83, 136);
+    }
+    input {
+      box-sizing: border-box; /* مهم */
+    }
+
+    .my-epass input{
+      width: 330px;
+      height: 35px;
+      border-radius: 4px;
+      background-color: rgb(53, 53, 151);
+      padding: 8px;
+      outline: none;
+      transition: border 0.5s ease;
+      border: 2px solid transparent;
+      color: white; 
+    }
+    .my-epass input:focus{
+      border: 2px solid rgb(81, 83, 136);
+    }
+    .my-sub-color{
+      background-color: rgb(62, 62, 168);
+      border-radius: 5px;
+      color: white;
+      transition: all 0.5s ease;
+      border: 2px solid transparent;
+    }
+    .my-sub-color:hover{
+      background-color: rgb(53, 53, 151);
+      border: 2px solid rgb(81, 83, 136);
+    }
+    .my-bot-img a img{
+      width: 20px;
+      height: 20px;
+    }
+    .my-bot-img a{
+      background-color: transparent;
+      border: 2px solid rgb(81, 83, 136);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      height: 40px;
+      width: 150px;
+      gap: 10px;
+    }
+    .my-bot-img a span{
+      color: white;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="w-[800px] h-[500px] flex gap-20 relative rounded-lg my-back-color"> 
+
+    <div class="flex p-4 w-[340px] gap-5 overflow-hidden my-fit-img">
+      <div class="flex gap-10 transition-transform duration-700 ease-in-out my-slider">
+      <img src="https://th.bing.com/th/id/OIP.FC2FMy0TCHwl7BgoGqLBSgHaLH?w=134&h=202&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="my-scroll-img" alt="tree">
+      <img src="https://th.bing.com/th/id/OIP.Nwx1OcJD9sfekEdvOVjXoQHaLI?w=133&h=202&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="my-scroll-img" alt="tree">
+      </div>
+      <span class="absolute bg-white right-[77%] scale-110 top-[95%] w-[40px] cursor-pointer h-[5px] my-next-img"></span>
+      <span class="absolute bg-gray-400 scale-75 right-[72%] top-[95%] w-[40px] cursor-pointer h-[5px] my-next-img"></span>
+    </div>
+
+    <div class="grid">
+      <h1 class="text-white text-3xl text-left mt-8">Create an account</h1>
+
+      <div class="flex gap-2 relative -top-5">
+        <p class="text-gray-400 text-sm">Already have an account?</p> 
+        <a href="#" class="text-blue-500 text-sm">LogIn</a>
+      </div>
+
+      <div class="flex gap-2 relative -top-5 w-[350px] h-[50px] my-inp-name">
+        <input type="text" name="firstName" placeholder="firstName">
+        <input type="text" name="lastName" placeholder="lastName">
+      </div>
+
+      <div class="grid gap-2 relative -top-10 w-[370px] h-[35px] my-epass">
+        <input type="email" name="email" placeholder="email" onfocus="this.removeAttribute('readonly');" readonly>
+        <input type="password" name="password" placeholder="password" onfocus="this.removeAttribute('readonly');" readonly>
+      </div>
+
+      <div class="flex relative -top-6 gap-1">
+        <input type="checkbox" class="-mt-6">
+        <p class="text-white ml-2 mt-1">I agree to the </p>
+        <a href="#" class="text-blue-500 text-sm mt-2">Terms&conditions</a>
+      </div>
+
+      <div class=" w-[330px] h-10 relative flex flex-col justify-center z-10">
+        <span class="absolute rounded-full text-sm top-10 bg-gray-500 w-[118px] h-[1px] z-10 px-3"></span>
+        <span class="absolute left-[105px] text-sm top-[27px] z-50 px-3 text-white">or register with</span>
+        <span class="absolute left-[210px] text-sm top-10 bg-gray-500 w-[118px] h-[1px] z-10 px-3"></span>
+      <button type="submit" name="Createaccount" id="" value="Create account" class="relative -top-4 h-10 w-[330px] my-sub-color">
+        Create account
+        </button>
+        </div>
+
+      <div class="flex justify-center relative -top-2 gap-5 my-bot-img">
+        <a href="#">
+          <img src="https://cdn-icons-png.flaticon.com/128/300/300221.png" alt="google">
+          <span>google</span>
+        </a>
+        <a href="#">
+          <img src="https://cdn-icons-png.flaticon.com/128/4102/4102952.png" alt="twitter">
+          <span>twitter</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const scrollbuttons = document.querySelectorAll('.my-next-img');
+    const totalimages = document.querySelectorAll('.my-scroll-img');
+    const slider = document.querySelector('.my-slider');
+    let currentIndex = 0;
+
+    function showImage(index){
+        slider.style.transform = `translateX(-${index * 340}px)`  
+
+        scrollbuttons.forEach((btn,i) => {
+          btn.style.backgroundColor = i === index ? 'white' : 'gray';
+          btn.style.transform = i === index ? 'scale(1.1)' : 'scale(0.75)';
+        })
+      }
+        scrollbuttons.forEach((btn,index) => {
+          btn.addEventListener('click',() => {
+            currentIndex = index;
+            showImage(currentIndex);
+          })
+        })
+    showImage(currentIndex);
+  </script>
+</body>
+</html>
